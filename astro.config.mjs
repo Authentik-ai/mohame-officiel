@@ -1,5 +1,5 @@
 export default {
-    site: "https://www.mohame-officiel.ci",
+    site: "https://mohame-ci.vercel.app",
     vite: {
         build: {
             cssCodeSplit: true,
