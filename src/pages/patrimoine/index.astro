@@ -1,0 +1,84 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+    title="Patrimoine de Mohamé"
+    description="Découvrez le patrimoine de Mohamé entre plage, canal et pêche artisanale, au cœur de l'identité naturelle et culturelle du village."
+>
+    <section class="container">
+        <h1>Patrimoine de Mohamé</h1>
+
+        <p>
+            Mohamé possède un patrimoine naturel et culturel remarquable,
+            façonné par l'océan Atlantique, le canal de Mohamé et les activités
+            traditionnelles de pêche artisanale.
+        </p>
+
+        <div class="cards">
+            <a href="/patrimoine/plage" class="card">
+                <img
+                    src="/images/plage/plage-mohame-01.webp"
+                    alt="Plage"
+                    loading="lazy"
+                    decoding="async"
+                />
+                <h3>La Plage</h3>
+            </a>
+
+            <a href="/patrimoine/canal" class="card">
+                <img
+                    src="/images/canal/vue-lontaine-mohame.webp"
+                    alt="Canal"
+                    loading="lazy"
+                    decoding="async"
+                />
+                <h3>Le Canal</h3>
+            </a>
+
+            <a href="/patrimoine/peche-artisanale" class="card">
+                <img
+                    src="/images/plage/plage-mohame-05.webp"
+                    alt="Pêche artisanale"
+                    loading="lazy"
+                    decoding="async"
+                />
+                <h3>Pêche artisanale</h3>
+            </a>
+        </div>
+    </section>
+</MainLayout>
+
+<style>
+    .container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 3rem 1rem;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .card {
+        text-decoration: none;
+        color: inherit;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+
+    .card h3 {
+        padding: 1rem;
+    }
+</style>

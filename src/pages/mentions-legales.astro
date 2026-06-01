@@ -1,0 +1,119 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout
+    title="Mentions légales"
+    description="Mentions légales du site Mohamé Officiel."
+>
+    <section class="legal-page">
+        <div class="container">
+            <h1>Mentions légales</h1>
+
+            <div class="legal-card">
+                <h2>Éditeur du site</h2>
+                <p>
+                    Site édité par l'Association des Jeunes Ressortissants de
+                    Mohamé (AJRMO) pour la présentation institutionnelle de
+                    Mohamé Officiel.
+                </p>
+            </div>
+
+            <div class="legal-card">
+                <h2>Contact</h2>
+                <p>
+                    Email :
+                    <a href="mailto:contact.mohame@gmail.com"
+                        >contact.mohame@gmail.com</a
+                    >
+                </p>
+                <p>
+                    WhatsApp :
+                    <a
+                        href="https://wa.me/2250777949604"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        +225 07 77 94 96 04
+                    </a>
+                </p>
+            </div>
+
+            <div class="legal-card">
+                <h2>Propriété intellectuelle</h2>
+                <p>
+                    L'ensemble des contenus présents sur ce site, notamment les
+                    textes, photographies, vidéos, logos et éléments graphiques,
+                    est protégé par le droit de la propriété intellectuelle.
+                    Toute reproduction ou diffusion non autorisée est interdite.
+                </p>
+            </div>
+
+            <div class="legal-card">
+                <h2>Responsabilité</h2>
+                <p>
+                    Les informations publiées sur ce site sont fournies à titre
+                    institutionnel et informatif. Malgré le soin apporté à leur
+                    mise à jour, des erreurs ou omissions peuvent subsister.
+                </p>
+            </div>
+        </div>
+    </section>
+</MainLayout>
+
+<style>
+    .legal-page {
+        padding: clamp(2rem, 6vw, 4rem) 1rem;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        margin: 0 0 1.5rem;
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1.1;
+        color: #003b5c;
+    }
+
+    .legal-card {
+        background: white;
+        border-radius: 16px;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid rgba(0, 59, 92, 0.08);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .legal-card h2 {
+        margin: 0 0 0.75rem;
+        font-size: clamp(1.1rem, 3vw, 1.4rem);
+        line-height: 1.25;
+        color: #003b5c;
+    }
+
+    .legal-card p {
+        margin: 0.5rem 0 0;
+        color: #555;
+        line-height: 1.7;
+    }
+
+    .legal-card a {
+        color: #0077b6;
+        text-decoration: none;
+        word-break: break-word;
+    }
+
+    .legal-card a:hover,
+    .legal-card a:focus-visible {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .legal-card {
+            padding: 1.25rem;
+        }
+    }
+</style>

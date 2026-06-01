@@ -1,0 +1,88 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const images = [
+  "/images/plage/plage-mohame-01.webp",
+  "/images/plage/plage-mohame-02.webp",
+  "/images/plage/plage-mohame-03.webp",
+  "/images/plage/plage-mohame-04.webp",
+];
+---
+
+<MainLayout
+  title="Tourisme à Mohamé, nature et découvertes"
+  description="Explorez le tourisme à Mohamé à travers la plage, le canal, les cocoteraies et les expériences naturelles du village."
+>
+  <section
+    style="
+    height:70vh;
+    background:url('/images/plage/plage-mohame-03.webp') center/cover;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  "
+  >
+    <div
+      style="
+      background:rgba(0,0,0,.55);
+      color:white;
+      padding:2rem 3rem;
+      border-radius:12px;
+      text-align:center;
+    "
+    >
+      <h1>Tourisme à Mohamé</h1>
+      <p>Entre océan, lagune et cocoteraies.</p>
+    </div>
+  </section>
+
+  <section class="container" style="padding:4rem 0;">
+    <h2>Une destination naturelle</h2>
+
+    <p>
+      Mohamé offre un cadre exceptionnel entre plage, lagune, forêt littorale et
+      traditions locales.
+    </p>
+
+    <p>
+      Les visiteurs peuvent découvrir la pêche artisanale, les balades
+      lagunaires, les cocoteraies et la richesse culturelle du village.
+    </p>
+
+    <h2 style="margin-top:3rem;">Atouts touristiques</h2>
+
+    <ul>
+      <li>Plage naturelle de l'océan Atlantique</li>
+      <li>Canal reliant lagune et océan</li>
+      <li>Cocoteraies et paysages côtiers</li>
+      <li>Culture locale et traditions</li>
+      <li>Activités nautiques et pêche</li>
+    </ul>
+  </section>
+
+  <section
+    style="
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:1.5rem;
+    padding:0 2rem 4rem;
+  "
+  >
+    {
+      images.map((image) => (
+        <img
+          src={image}
+          alt="Tourisme à Mohamé"
+          loading="lazy"
+          decoding="async"
+          style="
+          width:100%;
+          height:320px;
+          object-fit:cover;
+          border-radius:12px;
+        "
+        />
+      ))
+    }
+  </section>
+</MainLayout>

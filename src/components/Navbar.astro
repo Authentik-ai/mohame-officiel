@@ -1,0 +1,350 @@
+---
+import { navigation } from "../data/navigation";
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="navbar">
+  <div class="container">
+    <a href="/" class="brand">
+      <img
+        src="/images/logos/mohame-logo.webp"
+        alt="Logo Mohamé"
+        class="brand-logo"
+        width="50"
+        height="50"
+        loading="eager"
+      />
+      <span>Mohamé Officiel</span>
+    </a>
+
+    <button
+      class="hamburger"
+      id="hamburger"
+      aria-label="Menu navigation"
+      aria-expanded="false"
+      aria-controls="menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="menu" id="menu">
+      {
+        navigation.map((item) => {
+          const isActive =
+            currentPath === item.href ||
+            (item.href !== "/" && currentPath.startsWith(item.href));
+          return (
+            <li>
+              <a
+                href={item.href}
+                class={isActive ? "active-link" : ""}
+                aria-current={isActive ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</nav>
+
+<style is:global>
+  /* AJOUTÉ : Compense la hauteur de la navbar pour éviter que le contenu du site passe dessous au chargement */
+  body {
+    padding-top: 85px; /* Ajustez cette valeur selon la hauteur exacte de votre navbar */
+  }
+
+  @media (max-width: 768px) {
+    body {
+      padding-top: 76px; /* Ajustement pour la version mobile qui est un peu plus compacte */
+    }
+  }
+</style>
+
+<style>
+  /* Base & Mode Flottant */
+  .navbar {
+    background: rgba(
+      255,
+      255,
+      255,
+      0.95
+    ); /* MODIFIÉ : Léger effet de transparence pro */
+    backdrop-filter: blur(
+      8px
+    ); /* AJOUTÉ : Effet de flou moderne derrière la navbar */
+    position: fixed; /* MODIFIÉ : Rend la navbar flottante */
+    top: 0; /* AJOUTÉ : Aligne la navbar tout en haut */
+    left: 0; /* AJOUTÉ : Aligne à gauche */
+    width: 100%;
+    z-index: 1000; /* AJOUTÉ : Force la navbar à rester au-dessus de TOUT le contenu du site */
+    border-bottom: 1px solid #eef2f6;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 2rem;
+  }
+
+  /* Identité Visuelle */
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #003b5c;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    flex-shrink: 0;
+    min-height: 44px;
+  }
+
+  .brand span {
+    font-size: 1.25rem;
+  }
+
+  .brand-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+  }
+
+  /* Menu Desktop */
+  .menu {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu a {
+    text-decoration: none;
+    color: #4a5568;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    position: relative;
+  }
+
+  .menu a::after {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #0077b6;
+    transition: width 0.2s ease;
+  }
+
+  .menu a:hover::after,
+  .menu a:focus-visible::after,
+  .menu a.active-link::after {
+    width: 100%;
+  }
+
+  .menu a:hover,
+  .menu a:focus-visible,
+  .menu a.active-link {
+    color: #0077b6;
+    outline: none;
+  }
+
+  /* Bouton Mobile Hamburger */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 8px;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hamburger span {
+    width: 22px;
+    height: 2px;
+    background: #003b5c;
+    border-radius: 4px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hamburger[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  .hamburger[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Desktop Responsiveness */
+  @media (min-width: 769px) {
+    .hamburger {
+      display: none !important;
+    }
+
+    .menu {
+      display: flex !important;
+      position: static !important;
+      flex-direction: row !important;
+      background: none !important;
+      padding: 0 !important;
+      width: auto !important;
+      box-shadow: none !important;
+    }
+
+    .menu li {
+      display: list-item !important;
+    }
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .navbar {
+      position: fixed; /* MODIFIÉ : Reste fixe également sur mobile */
+    }
+
+    .container {
+      padding: 1rem 1.5rem;
+    }
+
+    .brand span {
+      font-size: 1.1rem;
+    }
+
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 0;
+      background: rgba(
+        255,
+        255,
+        255,
+        0.98
+      ); /* MODIFIÉ : Cohérence transparence sur mobile */
+      padding: 0.5rem 0;
+      z-index: 1000;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 100%;
+    }
+
+    /* AJOUTÉ : Permet de faire défiler le menu mobile s'il y a trop de liens et que l'écran est petit */
+    .menu.active {
+      max-height: calc(100vh - 100%);
+      overflow-y: auto;
+      border-bottom: 1px solid #eef2f6;
+    }
+
+    .menu li {
+      width: 100%;
+    }
+
+    .menu a {
+      padding: 0.75rem 1.5rem !important;
+      min-height: 48px;
+      font-size: 1rem;
+      color: #334155;
+    }
+
+    .menu a::after {
+      display: none;
+    }
+
+    .menu a:active,
+    .menu a:hover,
+    .menu a.active-link {
+      background: #f8fafc;
+      color: #0077b6;
+    }
+  }
+
+  /* Très petit écran */
+  @media (max-width: 380px) {
+    .container {
+      padding: 0.75rem 1rem;
+    }
+
+    .brand span {
+      font-size: 1rem;
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+    }
+  }
+</style>
+
+<script>
+  function initNavbar() {
+    const hamburger = document.getElementById("hamburger");
+    const menu = document.getElementById("menu");
+
+    if (hamburger && menu) {
+      hamburger.addEventListener("click", () => {
+        const isExpanded = hamburger.getAttribute("aria-expanded") === "true";
+        hamburger.setAttribute("aria-expanded", String(!isExpanded));
+        menu.classList.toggle("active");
+      });
+
+      const links = menu.querySelectorAll("a");
+      links.forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.setAttribute("aria-expanded", "false");
+          menu.classList.remove("active");
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        const target = e.target;
+        if (
+          target instanceof Node &&
+          !hamburger.contains(target) &&
+          !menu.contains(target)
+        ) {
+          hamburger.setAttribute("aria-expanded", "false");
+          menu.classList.remove("active");
+        }
+      });
+    }
+  }
+
+  initNavbar();
+  document.addEventListener("astro:page-load", initNavbar);
+</script>

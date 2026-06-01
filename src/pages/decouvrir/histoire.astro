@@ -1,0 +1,185 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+    title="Histoire du village de Mohamé"
+    description="Découvrez l'histoire de Mohamé, village côtier du Sud-Comoé marqué par la pêche, l'océan, les cocoteraies et la mobilisation communautaire."
+>
+    <section class="hero">
+        <div class="overlay">
+            <h1>Histoire de Mohamé</h1>
+            <p>
+                Un village tourné vers l'avenir, riche de son histoire et de ses
+                traditions.
+            </p>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2>Aux origines du village</h2>
+
+        <p>
+            Mohamé est un village côtier situé dans la Sous-Préfecture de
+            Bonoua, dans la région du Sud-Comoé. Son implantation entre l'océan
+            Atlantique, le canal de Vridi et les vastes cocoteraies lui a permis
+            de développer au fil des années une identité forte et unique.
+        </p>
+
+        <p>
+            Historiquement, les populations locales ont toujours vécu en
+            harmonie avec leur environnement naturel. La pêche artisanale,
+            l'agriculture et les échanges avec les villages voisins ont
+            constitué les principales activités économiques de la communauté.
+        </p>
+    </section>
+
+    <section class="timeline">
+        <div class="container">
+            <h2>Les grandes étapes</h2>
+
+            <div class="events">
+                <div class="event">
+                    <h3>🌴 Installation des premières communautés</h3>
+                    <p>
+                        Les premiers habitants s'installent à proximité des
+                        ressources naturelles offertes par l'océan, la lagune et
+                        les terres fertiles.
+                    </p>
+                </div>
+
+                <div class="event">
+                    <h3>🎣 Développement de la pêche artisanale</h3>
+                    <p>
+                        La pêche devient progressivement l'une des principales
+                        activités économiques du village.
+                    </p>
+                </div>
+
+                <div class="event">
+                    <h3>🛣️ Modernisation des infrastructures</h3>
+                    <p>
+                        L'amélioration des routes et la proximité de l'autoroute
+                        Abidjan–Assinie renforcent l'ouverture du village.
+                    </p>
+                </div>
+
+                <div class="event">
+                    <h3>👥 Mobilisation de la jeunesse</h3>
+                    <p>
+                        La création et le développement de l'AJRMO favorisent
+                        l'engagement des jeunes dans la vie communautaire.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2>Mohamé aujourd'hui</h2>
+
+        <p>
+            Aujourd'hui, Mohamé est reconnu pour son patrimoine naturel, son
+            potentiel touristique, ses infrastructures en développement et la
+            forte implication de sa population dans les initiatives locales de
+            progrès.
+        </p>
+
+        <p>
+            Entre tradition et modernité, le village poursuit sa croissance tout
+            en préservant les valeurs qui font sa richesse culturelle.
+        </p>
+    </section>
+
+    <section class="gallery container">
+        <h2>Quelques images du village</h2>
+
+        <div class="grid">
+            <img
+                src="/images/pecheurs/mise-a-leau-pirogue-mohame.webp"
+                alt="Mohamé"
+                loading="lazy"
+                decoding="async"
+            />
+            <img
+                src="/images/canal/les-pirogues-jumelles-mohame.webp"
+                alt="Canal"
+                loading="lazy"
+                decoding="async"
+            />
+            <img
+                src="/images/pecheurs/pecheurs-reparant-leur-fillet-mohame.webp"
+                alt="Plage"
+                loading="lazy"
+                decoding="async"
+            />
+            <img
+                src="/images/base-maritime/base-maritime-05.webp"
+                alt="Développement"
+                loading="lazy"
+                decoding="async"
+            />
+        </div>
+    </section>
+</MainLayout>
+
+<style>
+    .hero {
+        height: 55vh;
+        background: url("/images/canal/les-pirogues-jumelles-mohame.webp")
+            center/cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .overlay {
+        background: rgba(0, 0, 0, 0.45);
+        color: white;
+        text-align: center;
+        padding: 2rem 3rem;
+        border-radius: 20px;
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 4rem 1rem;
+    }
+
+    .container p {
+        line-height: 1.9;
+        margin-top: 1rem;
+    }
+
+    .timeline {
+        background: #f5f7fa;
+    }
+
+    .events {
+        margin-top: 2rem;
+        display: grid;
+        gap: 1.5rem;
+    }
+
+    .event {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .gallery .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 16px;
+    }
+</style>

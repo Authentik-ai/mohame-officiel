@@ -1,0 +1,93 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+    title="Infrastructures de Mohamé"
+    description="Découvrez les infrastructures de Mohamé : autoroute, base maritime, gendarmerie, école et centre de santé au service du village."
+>
+    <section class="container">
+        <h1>Infrastructures de Mohamé</h1>
+
+        <p>
+            Mohamé bénéficie d'infrastructures stratégiques qui participent à
+            son développement économique, éducatif, sanitaire et sécuritaire.
+        </p>
+
+        <div class="cards">
+            <a href="/infrastructures/autoroute" class="card">
+                <img
+                    src="/images/autoroute/peage-nouvelle-autoroute-abidjan-assinie-par-mohame.webp"
+                    alt="Péage de la nouvelle autoroute Abidjan – Assinie par Mohamé"
+                />
+                <h3>Autoroute Abidjan – Assinie</h3>
+            </a>
+
+            <a href="/infrastructures/base-maritime" class="card">
+                <img
+                    src="/images/base-maritime/base-maritime-02.webp"
+                    alt="Base Maritime de Mohamé"
+                />
+                <h3>Base Maritime</h3>
+            </a>
+
+            <a href="/infrastructures/gendarmerie" class="card">
+                <img
+                    src="/images/gendarmerie/poste-gendarmerie-mohame.webp"
+                    alt="Poste de Gendarmerie de Mohamé"
+                />
+                <h3>Gendarmerie</h3>
+            </a>
+
+            <a href="/infrastructures/ecole" class="card">
+                <img
+                    src="/images/ecole/ecole-primaire-mohame-01.webp"
+                    alt="École primaire de Mohamé"
+                />
+                <h3>Éducation</h3>
+            </a>
+
+            <a href="/infrastructures/centre-sante" class="card">
+                <img
+                    src="/images/sante/centre-sante-mohame-01.webp"
+                    alt="Centre de Santé de Mohamé"
+                />
+                <h3>Centre de Santé</h3>
+            </a>
+        </div>
+    </section>
+</MainLayout>
+
+<style>
+    .container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 3rem 1rem;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+    }
+
+    .card h3 {
+        padding: 1rem;
+    }
+</style>

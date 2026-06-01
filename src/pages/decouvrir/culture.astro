@@ -1,0 +1,216 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+    title="Culture et traditions de Mohamé"
+    description="Plongez dans la culture de Mohamé : traditions locales, solidarité communautaire, jeunesse engagée et identité vivante du village."
+>
+    <section class="hero">
+        <div class="overlay">
+            <h1>Culture et Traditions</h1>
+            <p>Une identité vivante transmise de génération en génération.</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2>Une communauté attachée à ses valeurs</h2>
+
+        <p>
+            Mohamé est un village où les traditions occupent une place
+            importante dans la vie quotidienne. Le respect des anciens, la
+            solidarité, l'entraide et l'attachement aux valeurs communautaires
+            constituent les fondements de la société locale.
+        </p>
+
+        <p>
+            Les cérémonies traditionnelles, les rassemblements familiaux et les
+            événements communautaires permettent de préserver l'identité
+            culturelle du village tout en renforçant les liens sociaux.
+        </p>
+    </section>
+
+    <section class="traditions">
+        <div class="container">
+            <h2>Les piliers de la culture locale</h2>
+
+            <div class="cards">
+                <div class="card">
+                    <div class="icon">🤝</div>
+                    <h3>Solidarité</h3>
+                    <p>
+                        L'entraide entre les habitants demeure une valeur
+                        essentielle dans la vie communautaire.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">👨‍👩‍👧‍👦</div>
+                    <h3>Famille</h3>
+                    <p>
+                        Les liens familiaux jouent un rôle central dans
+                        l'organisation sociale du village.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">🥁</div>
+                    <h3>Traditions</h3>
+                    <p>
+                        Les coutumes et les pratiques culturelles continuent
+                        d'être transmises aux jeunes générations.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">🌴</div>
+                    <h3>Nature</h3>
+                    <p>
+                        La proximité avec l'océan et les cocoteraies influence
+                        fortement le mode de vie local.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2>La jeunesse au cœur du développement</h2>
+
+        <p>
+            À travers l'AJRMO, la jeunesse de Mohamé participe activement au
+            développement du village. Les initiatives communautaires, les
+            actions sociales et les projets de développement témoignent de
+            l'engagement des jeunes pour l'avenir de leur localité.
+        </p>
+
+        <p>
+            Cette dynamique contribue à renforcer la cohésion sociale et à
+            promouvoir une vision moderne du développement local, tout en
+            préservant les valeurs traditionnelles.
+        </p>
+    </section>
+
+    <section class="gallery container">
+        <h2>Moments de vie communautaire</h2>
+
+        <div class="grid">
+            <img
+                src="/images/ajrmo/ag-elective-ajrmo.webp"
+                alt="AJRMO"
+                loading="lazy"
+                decoding="async"
+            />
+            <img
+                src="/images/ajrmo/partage-apres-ag-ajrmo-01.webp"
+                alt="Communauté"
+                loading="lazy"
+                decoding="async"
+            />
+            <img
+                src="/images/ajrmo/partage-apres-ag-ajrmo-03.webp"
+                alt="Réunion"
+                loading="lazy"
+                decoding="async"
+            />
+            <img
+                src="/images/ajrmo/partage-apres-ag-ajrmo-04.webp"
+                alt="Jeunesse"
+                loading="lazy"
+                decoding="async"
+            />
+        </div>
+    </section>
+
+    <section class="quote">
+        <div class="container">
+            <blockquote>
+                « La force de Mohamé réside dans l'unité de sa population, son
+                attachement à ses traditions et sa volonté de construire
+                l'avenir. »
+            </blockquote>
+        </div>
+    </section>
+</MainLayout>
+
+<style>
+    .hero {
+        height: 55vh;
+        background: url("/images/canal/environnement-canal-03.webp")
+            center/cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .overlay {
+        background: rgba(0, 0, 0, 0.45);
+        color: white;
+        padding: 2rem 3rem;
+        border-radius: 20px;
+        text-align: center;
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 4rem 1rem;
+    }
+
+    .container p {
+        line-height: 1.9;
+        margin-top: 1rem;
+    }
+
+    .traditions {
+        background: #f5f8fb;
+    }
+
+    .cards {
+        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .card {
+        background: white;
+        padding: 2rem;
+        border-radius: 16px;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .gallery .grid {
+        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+        border-radius: 16px;
+    }
+
+    .quote {
+        background: #003b5c;
+        color: white;
+        text-align: center;
+        padding: 5rem 1rem;
+    }
+
+    blockquote {
+        font-size: 1.5rem;
+        font-style: italic;
+        max-width: 900px;
+        margin: auto;
+    }
+</style>

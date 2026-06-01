@@ -1,0 +1,56 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+    title="Activités touristiques à Mohamé"
+    description="Découvrez les activités touristiques à Mohamé : balades sur la plage, canal, nature côtière, écotourisme et patrimoine local."
+>
+    <section class="container">
+        <h1>Activités Touristiques</h1>
+
+        <p>
+            Mohamé propose diverses activités liées à son environnement naturel
+            exceptionnel entre océan, lagune et cocoteraies.
+        </p>
+
+        <ul class="activities">
+            <li>Balades sur la plage</li>
+
+            <li>Découverte du canal de Mohamé</li>
+
+            <li>Observation de la nature côtière</li>
+
+            <li>Photographie et écotourisme</li>
+
+            <li>Découverte du patrimoine local</li>
+        </ul>
+
+        <img
+            src="/images/plage/plage-mohame-04.webp"
+            alt="Activités à Mohamé"
+            class="hero-image"
+            loading="lazy"
+            decoding="async"
+        />
+    </section>
+</MainLayout>
+
+<style>
+    .container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 3rem 1rem;
+    }
+
+    .activities {
+        margin: 2rem 0;
+        line-height: 2;
+    }
+
+    .hero-image {
+        width: 100%;
+        max-width: 900px;
+        border-radius: 12px;
+    }
+</style>

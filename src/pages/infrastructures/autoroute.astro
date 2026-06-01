@@ -1,0 +1,76 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const images = [
+  "/images/autoroute/nouvelle-autoroute-abidjan-assinie-par-mohame01.webp",
+  "/images/autoroute/nouvelle-autoroute-abidjan-assinie-par-mohame-02.webp",
+  "/images/autoroute/peage-nouvelle-autoroute-abidjan-assinie-par-mohame.webp",
+];
+---
+
+<MainLayout
+  title="Autoroute Abidjan–Assinie à Mohamé"
+  description="Découvrez l'autoroute Abidjan–Assinie à Mohamé, un axe stratégique qui améliore la mobilité, les échanges et le développement régional."
+>
+  <section
+    style={`height:70vh;background:url(${images[0]}) center/cover;display:flex;align-items:center;justify-content:center;`}
+  >
+    <div
+      style="background:rgba(0,0,0,.5);padding:2rem 3rem;border-radius:16px;color:white;text-align:center;"
+    >
+      <h1>Autoroute Abidjan – Assinie</h1>
+      <p>Un axe stratégique au service du développement régional.</p>
+    </div>
+  </section>
+
+  <section class="container">
+    <h2>Une infrastructure majeure</h2>
+
+    <p>
+      L'autoroute Abidjan–Assinie facilite l'accès à la région de Mohamé et
+      renforce les échanges économiques, touristiques et commerciaux.
+    </p>
+
+    <p>
+      Elle améliore la mobilité des populations et contribue au développement
+      des localités du Sud-Comoé.
+    </p>
+  </section>
+
+  <section class="gallery">
+    {
+      images.map((image) => (
+        <img
+          src={image}
+          alt="Autoroute Abidjan Assinie"
+          loading="lazy"
+          decoding="async"
+        />
+      ))
+    }
+  </section>
+</MainLayout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 4rem 2rem;
+  }
+
+  .gallery {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .gallery img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+</style>

@@ -1,0 +1,110 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const images = [
+  "/images/ajrmo/affiche-president.webp",
+  "/images/ajrmo/ag-elective-ajrmo.webp",
+  "/images/ajrmo/le-sourire-du-president.webp",
+  "/images/ajrmo/logo-officiel-ajrmo.webp",
+  "/images/ajrmo/partage-apres-ag-ajrmo-01.webp",
+  "/images/ajrmo/partage-apres-ag-ajrmo-02.webp",
+  "/images/ajrmo/partage-apres-ag-ajrmo-03.webp",
+  "/images/ajrmo/partage-apres-ag-ajrmo-04.webp",
+];
+---
+
+<MainLayout
+  title="AJRMO, association des jeunes de Mohamé"
+  description="Découvrez l'AJRMO, l'association des jeunes ressortissants de Mohamé, son rôle communautaire, ses missions et ses actions pour le développement du village."
+>
+  <section
+    style="
+     height:70vh;
+	 background:url('/images/ajrmo/vie-associative-a-mohame05.webp') center/cover;
+     display:flex;
+     align-items:center;
+     justify-content:center;
+    "
+  >
+    <div
+      style="
+        background:rgba(0,0,0,.6);
+        color:white;
+        padding:2rem 3rem;
+        border-radius:12px;
+        text-align:center;
+      "
+    >
+      <h1>AJRMO</h1>
+      <p>Association des Jeunes Ressortissants de Mohamé</p>
+    </div>
+  </section>
+
+  <section class="container" style="padding:4rem 0;">
+    <h2>Présentation</h2>
+
+    <p>
+      L'AJRMO est une organisation communautaire engagée dans le développement
+      social, culturel et économique de Mohamé.
+    </p>
+
+    <p>
+      Elle rassemble les jeunes ressortissants du village autour d'actions
+      concrètes visant à promouvoir l'entraide, la solidarité et le progrès
+      collectif.
+    </p>
+
+    <h2 style="margin-top:3rem;">Missions</h2>
+
+    <ul>
+      <li>Renforcer l'unité des ressortissants de Mohamé.</li>
+      <li>Participer au développement local.</li>
+      <li>Soutenir les initiatives éducatives et sociales.</li>
+      <li>Valoriser le patrimoine culturel du village.</li>
+      <li>Accompagner les projets communautaires.</li>
+    </ul>
+
+    <h2 style="margin-top:3rem;">Actions réalisées</h2>
+
+    <p>
+      Assemblées générales, rencontres communautaires, activités sociales,
+      accompagnement des populations, actions de sensibilisation et
+      participation aux projets de développement du village.
+    </p>
+  </section>
+
+  <section
+    style="
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:1.5rem;
+      padding:0 2rem 4rem;
+    "
+  >
+    {
+      images.map((image) => (
+        <img
+          src={image}
+          alt="AJRMO"
+          loading="lazy"
+          decoding="async"
+          style="
+            width:100%;
+            height:320px;
+            object-fit:cover;
+            border-radius:12px;
+          "
+        />
+      ))
+    }
+  </section>
+
+  <section class="container" style="padding-bottom:4rem;">
+    <h2>Message du Président</h2>
+
+    <p>
+      Ensemble, nous construisons l'avenir de Mohamé en favorisant la cohésion,
+      la solidarité et le développement durable de notre communauté.
+    </p>
+  </section>
+</MainLayout>

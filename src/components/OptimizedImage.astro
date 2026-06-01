@@ -1,0 +1,89 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  title?: string;
+  width?: number;
+  height?: number;
+  sizes?: string;
+  loading?: 'lazy' | 'eager';
+  class?: string;
+}
+
+const {
+  src,
+  alt,
+  title,
+  width = 800,
+  height = 600,
+  sizes = '(max-width: 480px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 80vw, 100vw',
+  loading = 'lazy',
+  class: className,
+} = Astro.props;
+
+// Générer les sources optimisées
+const srcWithoutExt = src.replace(/\.[^.]+$/, '');
+const webpSrc = srcWithoutExt + '.webp';
+const jpgSrc = srcWithoutExt + '.jpg';
+const webpSrc = srcWithoutExt + '.webp';
+
+// Déterminer l'extension originale
+const originalExt = src.split('.').pop()?.toLowerCase();
+const isSvg = originalExt === 'svg';
+const isPng = originalExt === 'webp';
+const isJpg = originalExt === 'jpeg' || originalExt === 'jpg';
+
+// Créer les srcset pour responsive images
+const createSrcSet = (baseSrc: string) => {
+  return `${baseSrc} 1x, ${baseSrc.replace(/\.[^.]+$/, '')}@2x${baseSrc.match(/\.[^.]+$/)?.[0]} 2x`;
+};
+---
+
+{
+  isSvg ? (
+    <img
+      src={src}
+      alt={alt}
+      title={title}
+      width={width}
+      height={height}
+      class={className}
+      decoding="async"
+    />
+  ) : (
+    <picture>
+      <!-- WebP format pour navigateurs modernes -->
+      <source
+        srcset={createSrcSet(webpSrc)}
+        sizes={sizes}
+        type="image/webp"
+      />
+      <!-- Fallback JPEG pour tous les navigateurs -->
+      <source
+        srcset={createSrcSet(jpgSrc)}
+        sizes={sizes}
+        type="image/jpeg"
+      />
+      <!-- Image img avec lazy loading -->
+      <img
+        src={isJpg ? jpgSrc : isPng ? webpSrc : src}
+        alt={alt}
+        title={title}
+        width={width}
+        height={height}
+        sizes={sizes}
+        loading={loading}
+        decoding="async"
+        class={className}
+      />
+    </picture>
+  )
+}
+
+<style>
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>

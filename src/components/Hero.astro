@@ -1,0 +1,156 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  image: string;
+  height?: string;
+  background?: string;
+  overlayMaxWidth?: string;
+}
+
+const {
+  title,
+  subtitle,
+  image,
+  height = "60vh",
+  background,
+  overlayMaxWidth = "700px",
+} = Astro.props;
+const heroBackground = background ?? `url("${image}")`;
+---
+
+<section
+  class="hero"
+  style={`background: ${heroBackground} center/cover; height: ${height}; background-attachment: fixed;`}
+  role="region"
+  aria-label="Hero section"
+>
+  <div class="overlay" style={`max-width: ${overlayMaxWidth};`}>
+    <h1>{title}</h1>
+    <p>{subtitle}</p>
+  </div>
+</section>
+
+<style>
+  .hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 40vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+
+  /* Lazy load hero background */
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+  }
+
+  .overlay {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    text-align: center;
+    animation: fadeIn 0.6s ease;
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .overlay h1 {
+    margin: 0;
+    font-size: clamp(1.75rem, 5vw, 4rem);
+    line-height: 1.2;
+    font-weight: 700;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .overlay p {
+    margin-top: 1rem;
+    font-size: clamp(0.95rem, 3vw, 1.1rem);
+    line-height: 1.5;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Tablette */
+  @media (max-width: 1024px) {
+    .overlay {
+      padding: 1.5rem 2rem;
+    }
+
+    .overlay h1 {
+      font-size: clamp(1.5rem, 4vw, 3rem);
+    }
+
+    .overlay p {
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 35vh;
+      background-attachment: scroll; /* Disable parallax on mobile */
+    }
+
+    .overlay {
+      padding: 1.5rem 1.5rem;
+      border-radius: 8px;
+      max-width: 95% !important;
+    }
+
+    .overlay h1 {
+      font-size: clamp(1.25rem, 4vw, 2rem);
+    }
+
+    .overlay p {
+      font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+      margin-top: 0.75rem;
+    }
+  }
+
+  /* Très petit écran */
+  @media (max-width: 380px) {
+    .hero {
+      min-height: 30vh;
+    }
+
+    .overlay {
+      padding: 1rem 1rem;
+      max-width: 100% !important;
+    }
+
+    .overlay h1 {
+      font-size: 1.25rem;
+    }
+
+    .overlay p {
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+    }
+  }
+</style>

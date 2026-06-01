@@ -1,0 +1,103 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+    title="Centre de santé de Mohamé"
+    description="Découvrez le centre de santé de Mohamé, une infrastructure essentielle pour les soins de proximité et le bien-être des habitants."
+>
+    <section class="hero">
+        <div class="overlay">
+            <h1>Centre de Santé</h1>
+            <p>Un service essentiel au bien-être des populations.</p>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <h2>Des soins de proximité</h2>
+
+            <p>
+                Le centre de santé de Mohamé assure la prise en charge des
+                besoins sanitaires des habitants du village.
+            </p>
+
+            <p>
+                Cette infrastructure contribue à l'amélioration de la qualité de
+                vie et au développement humain de la communauté.
+            </p>
+
+            <div class="gallery">
+                <img
+                    src="/images/sante/centre-sante-mohame-01.webp"
+                    alt="Centre de santé de Mohamé"
+                    loading="lazy"
+                    decoding="async"
+                />
+                <img
+                    src="/images/sante/centre-sante-mohame-02.webp"
+                    alt="Bâtiment du centre de santé de Mohamé"
+                    loading="lazy"
+                    decoding="async"
+                />
+                <img
+                    src="/images/sante/vaccination-des-moins-cinq-ans-mohame.webp"
+                    alt="Séance de vaccination des enfants à Mohamé"
+                    loading="lazy"
+                    decoding="async"
+                />
+                <img
+                    src="/images/sante/visite-du-sous-prefet-au-centre-sante-mohame.webp"
+                    alt="Visite du sous-préfet au centre de santé de Mohamé"
+                    loading="lazy"
+                    decoding="async"
+                />
+            </div>
+        </div>
+    </section>
+</MainLayout>
+
+<style>
+    .hero {
+        height: 60vh;
+        background: url("/images/sante/centre-sante-mohame-01.webp");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .overlay {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 40px;
+        border-radius: 12px;
+        color: white;
+        text-align: center;
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 3rem 1rem;
+    }
+
+    .main-image {
+        width: 100%;
+        margin-top: 2rem;
+        border-radius: 12px;
+    }
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+</style>

@@ -1,0 +1,106 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout
+    title="Politique de confidentialité"
+    description="Politique de confidentialité du site Mohamé Officiel."
+>
+    <section class="legal-page">
+        <div class="container">
+            <h1>Politique de confidentialité</h1>
+
+            <div class="legal-card">
+                <h2>Données collectées</h2>
+                <p>
+                    Ce site ne collecte pas de données personnelles via
+                    formulaire. Les seules informations susceptibles d'être
+                    traitées proviennent des échanges initiés volontairement par
+                    email ou WhatsApp.
+                </p>
+            </div>
+
+            <div class="legal-card">
+                <h2>Finalité</h2>
+                <p>
+                    Les informations communiquées servent uniquement à répondre
+                    aux demandes institutionnelles liées à Mohamé Officiel et à
+                    l'AJRMO.
+                </p>
+            </div>
+
+            <div class="legal-card">
+                <h2>Cookies et traceurs</h2>
+                <p>
+                    Le site n'utilise pas de cookies publicitaires ni de
+                    traceurs à des fins de profilage. Des outils techniques de
+                    navigation peuvent toutefois être utilisés par l'hébergeur
+                    ou le navigateur de l'utilisateur.
+                </p>
+            </div>
+
+            <div class="legal-card">
+                <h2>Destinataires</h2>
+                <p>
+                    Les échanges envoyés via les liens de contact sont traités
+                    par les responsables institutionnels habilités de l'AJRMO.
+                </p>
+            </div>
+
+            <div class="legal-card">
+                <h2>Vos droits</h2>
+                <p>
+                    Conformément à la réglementation applicable, vous pouvez
+                    demander la rectification ou la suppression des informations
+                    transmises par les canaux de contact du site.
+                </p>
+            </div>
+        </div>
+    </section>
+</MainLayout>
+
+<style>
+    .legal-page {
+        padding: clamp(2rem, 6vw, 4rem) 1rem;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        margin: 0 0 1.5rem;
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1.1;
+        color: #003b5c;
+    }
+
+    .legal-card {
+        background: white;
+        border-radius: 16px;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid rgba(0, 59, 92, 0.08);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .legal-card h2 {
+        margin: 0 0 0.75rem;
+        font-size: clamp(1.1rem, 3vw, 1.4rem);
+        line-height: 1.25;
+        color: #003b5c;
+    }
+
+    .legal-card p {
+        margin: 0.5rem 0 0;
+        color: #555;
+        line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+        .legal-card {
+            padding: 1.25rem;
+        }
+    }
+</style>

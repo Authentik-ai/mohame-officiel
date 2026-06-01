@@ -1,0 +1,646 @@
+---
+import { site } from "../data/site";
+import { navigation } from "../data/navigation";
+
+const currentYear = new Date().getFullYear();
+
+const socialLinks = [
+  {
+    name: "Facebook",
+    href: site.facebook,
+    background: "#1877F2",
+    icon: `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="22" height="22"><path fill="#ffffff" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>`,
+  },
+  {
+    name: "Instagram",
+    href: site.instagram,
+    background:
+      "linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)",
+    icon: `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="22" height="22" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>`,
+  },
+  {
+    name: "TikTok",
+    href: site.tikTok,
+    background: "#000000",
+    icon: `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="22" height="22"><path fill="#ffffff" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.05 1.62 4.2 1.23 1.34 2.97 2.13 4.78 2.29V10.4c-1.39-.12-2.74-.63-3.86-1.49-.69-.53-1.27-1.19-1.69-1.95-.03 2.44-.02 4.88-.03 7.32-.03 2.1-.64 4.22-1.93 5.86-1.58 2.06-4.14 3.19-6.72 2.94-2.48-.18-4.82-1.65-6.01-3.84-1.48-2.63-1.18-6.17.76-8.49 1.52-1.86 3.95-2.77 6.31-2.4v3.74c-1.18-.32-2.49-.04-3.41.74-.88.72-1.31 1.88-1.21 3 .08 1.15.75 2.19 1.7 2.8 1.05.69 2.39.77 3.51.2 1.06-.52 1.78-1.62 1.87-2.81.04-3.79.02-7.57.03-11.36z"/></svg>`,
+  },
+  {
+    name: "WhatsApp",
+    href: site.whatsapp,
+    background: "#25D366",
+    icon: `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="22" height="22"><path fill="#ffffff" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.454 5.709 1.455h.008c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`,
+  },
+];
+
+const partnerLinks = [
+  {
+    name: "Partenaire 1",
+    href: "#",
+    src: "/images/partenaires/dablehotel.webp",
+  },
+  {
+    name: "Partenaire 2",
+    href: "#",
+    src: "/images/partenaires/kunyelefm.webp",
+  },
+  {
+    name: "Partenaire 3",
+    href: "#",
+    src: "/images/partenaires/radiomapliefa.webp",
+  },
+  {
+    name: "Partenaire 4",
+    href: "#",
+    src: "/images/partenaires/logo-officiel-ajrmo.webp",
+  },
+];
+
+const legalLinks = [
+  {
+    label: "Mentions légales",
+    href: "/mentions-legales",
+  },
+  {
+    label: "Politique de confidentialité",
+    href: "/politique-confidentialite",
+  },
+];
+
+/**
+ * SVG placeholder inline — utilisé si le fichier image est absent.
+ * Chaque carte affiche le nom du partenaire en fallback élégant.
+ */
+const placeholderSvg = (name: string) =>
+  `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 48'%3E%3Crect width='120' height='48' rx='6' fill='%23ffffff10'/%3E%3Ctext x='60' y='28' font-family='system-ui' font-size='10' fill='%23ffffff70' text-anchor='middle'%3E${encodeURIComponent(name)}%3C/text%3E%3C/svg%3E`;
+---
+
+<footer class="mo-footer" aria-labelledby="mo-footer-title">
+  <div class="mo-footer__shell">
+    <div class="mo-footer__grid">
+      <!-- ══ BRAND ══ -->
+      <section class="mo-footer__brand" aria-labelledby="mo-footer-title">
+        <a
+          href="/"
+          class="mo-footer__brand-link"
+          aria-label="Retour à l'accueil"
+        >
+          <img
+            src="/images/logos/mohame-logo.webp"
+            alt="Logo officiel AJRMO"
+            class="mo-footer__logo"
+            width="84"
+            height="84"
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
+
+        <div class="mo-footer__brand-copy">
+          <h2 id="mo-footer-title" class="mo-footer__title">{site.title}</h2>
+          <p class="mo-footer__text-org">{site.organization}</p>
+          <p class="mo-footer__text mo-footer__text--muted">
+            {site.description}
+          </p>
+          <p class="mo-footer__meta">{site.location}</p>
+        </div>
+      </section>
+
+      <!-- ══ NAVIGATION ══ -->
+      <nav class="mo-footer__nav" aria-labelledby="mo-footer-nav-title">
+        <h3 id="mo-footer-nav-title" class="mo-footer__subtitle">Navigation</h3>
+        <ul class="mo-footer__list">
+          {
+            navigation.map((item) => (
+              <li class="mo-footer__list-item">
+                <a href={item.href} class="mo-footer__link">
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <!-- ══ RÉSEAUX SOCIAUX ══ -->
+      <section
+        class="mo-footer__social"
+        aria-labelledby="mo-footer-social-title"
+      >
+        <h3 id="mo-footer-social-title" class="mo-footer__subtitle">
+          Rejoignez-nous
+        </h3>
+        <div
+          class="mo-footer__social-row"
+          role="list"
+          aria-label="Réseaux sociaux"
+        >
+          {
+            socialLinks.map((social) => (
+              <a
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mo-footer__social-btn"
+                style={`--social-bg: ${social.background};`}
+                aria-label={social.name}
+                title={social.name}
+                role="listitem"
+              >
+                <span class="mo-footer__social-icon" set:html={social.icon} />
+              </a>
+            ))
+          }
+        </div>
+
+        <!-- ══ PARTENAIRES ══ -->
+        <div
+          class="mo-footer__partners"
+          aria-labelledby="mo-footer-partners-title"
+        >
+          <h3
+            id="mo-footer-partners-title"
+            class="mo-footer__subtitle mo-footer__subtitle--partners"
+          >
+            Partenaires
+          </h3>
+          <div
+            class="mo-footer__partners-row"
+            role="list"
+            aria-label="Nos partenaires"
+          >
+            {
+              partnerLinks.map((p) => (
+                <a
+                  href={p.href}
+                  class="mo-footer__partner-card"
+                  aria-label={`Partenaire : ${p.name}`}
+                  title={p.name}
+                  role="listitem"
+                >
+                  <span class="mo-footer__partner-frame">
+                    <img
+                      src={p.src}
+                      alt={p.name}
+                      class="mo-footer__partner-logo"
+                      loading="lazy"
+                      decoding="async"
+                      onerror={`this.src='${placeholderSvg(p.name)}'`}
+                    />
+                  </span>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- ══ LIENS LÉGAUX ══ -->
+        <div class="mo-footer__legal" aria-labelledby="mo-footer-legal-title">
+          <h3
+            id="mo-footer-legal-title"
+            class="mo-footer__subtitle mo-footer__subtitle--partners"
+          >
+            Infos légales
+          </h3>
+          <ul class="mo-footer__legal-list">
+            {
+              legalLinks.map((link) => (
+                <li class="mo-footer__legal-item">
+                  <a href={link.href} class="mo-footer__legal-link">
+                    {link.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </section>
+    </div><!-- /.mo-footer__grid -->
+
+    <!-- ══ COPYRIGHT BAR — responsive flex-wrap ══ -->
+    <div class="mo-footer__bar" aria-label="Copyright et crédits">
+      <p class="mo-footer__copy">
+        © {currentYear} Mohamé Officiel. Tous droits réservés.
+      </p>
+      <p class="mo-footer__copy mo-footer__copy--credit">
+        Designed by <span class="mo-footer__credit-brand">Authent!k</span>
+      </p>
+    </div>
+  </div><!-- /.mo-footer__shell -->
+</footer>
+
+<style>
+  /* ═══════════════════════════════════════════
+     FOOTER — Base
+  ═══════════════════════════════════════════ */
+  .mo-footer {
+    display: block;
+    width: 100%;
+    margin-top: 5rem;
+    background:
+      radial-gradient(
+        circle at top,
+        rgba(255, 255, 255, 0.04),
+        transparent 40%
+      ),
+      #003049;
+    color: #ffffff;
+    box-sizing: border-box;
+    font-family:
+      system-ui,
+      -apple-system,
+      sans-serif;
+  }
+
+  .mo-footer__shell {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 1.5rem;
+  }
+
+  /* ═══════════════════════════════════════════
+     GRID
+  ═══════════════════════════════════════════ */
+  .mo-footer__grid {
+    display: grid;
+    grid-template-columns: 1.4fr 0.8fr 1fr;
+    gap: 2.75rem;
+    align-items: start;
+  }
+
+  /* ═══════════════════════════════════════════
+     BRAND
+  ═══════════════════════════════════════════ */
+  .mo-footer__brand {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .mo-footer__brand-link {
+    display: inline-flex;
+    flex-shrink: 0;
+  }
+
+  .mo-footer__logo {
+    display: block;
+    width: 84px;
+    height: 84px;
+    border-radius: 18px;
+    padding: 6px;
+    object-fit: contain;
+    background: #ffffff;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+  }
+
+  .mo-footer__title {
+    margin: 0 0 0.25rem;
+    font-size: 1.4rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #ffffff;
+  }
+
+  .mo-footer__text-org {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+    font-weight: 650;
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .mo-footer__text,
+  .mo-footer__meta {
+    margin: 0 0 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .mo-footer__text--muted {
+    color: rgba(255, 255, 255, 0.68);
+  }
+
+  .mo-footer__meta {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  /* ═══════════════════════════════════════════
+     SUBTITLE commun
+  ═══════════════════════════════════════════ */
+  .mo-footer__subtitle {
+    margin: 0 0 1.15rem;
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #ffffff;
+  }
+
+  /* ═══════════════════════════════════════════
+     NAVIGATION
+  ═══════════════════════════════════════════ */
+  .mo-footer__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .mo-footer__link,
+  .mo-footer__legal-link {
+    display: inline-block;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.95rem;
+    font-weight: 550;
+    transition:
+      transform 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .mo-footer__link:hover,
+  .mo-footer__link:focus-visible,
+  .mo-footer__legal-link:hover {
+    color: #ffffff;
+    transform: translateX(4px);
+    outline: 2px solid rgba(255, 255, 255, 0.4);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  /* ═══════════════════════════════════════════
+     RÉSEAUX SOCIAUX
+  ═══════════════════════════════════════════ */
+  .mo-footer__social-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+  }
+
+  .mo-footer__social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    background: var(--social-bg);
+    color: #ffffff;
+    box-shadow:
+      0 8px 18px rgba(0, 0, 0, 0.24),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.14);
+    transition:
+      transform 0.22s ease,
+      box-shadow 0.22s ease,
+      filter 0.22s ease;
+    will-change: transform;
+  }
+
+  .mo-footer__social-btn:hover,
+  .mo-footer__social-btn:focus-visible {
+    transform: translateY(-4px) scale(1.03);
+    filter: brightness(1.04) saturate(1.02);
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 3px;
+    box-shadow:
+      0 12px 24px rgba(0, 0, 0, 0.28),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.12);
+  }
+
+  .mo-footer__social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ═══════════════════════════════════════════
+     PARTENAIRES — Section premium
+     Positionnée sous "Rejoignez-nous"
+  ═══════════════════════════════════════════ */
+  .mo-footer__partners {
+    margin-top: 2rem;
+  }
+
+  .mo-footer__subtitle--partners {
+    /* léger séparateur visuel depuis les réseaux sociaux */
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 1rem 0; /* Espace au-dessus et en-dessous de la ligne */
+  }
+  .mo-footer__partners-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    align-items: center;
+    /* aligné à gauche pour cohérence avec les icônes sociales */
+    justify-content: flex-start;
+  }
+
+  /* Carte partenaire — glassmorphism cohérent avec le footer sombre */
+  .mo-footer__partner-card {
+    flex: 0 0 auto;
+    width: 108px;
+    height: 58px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    /* fond semi-transparent — pas de blanc cassant */
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 12px;
+    padding: 0;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow:
+      0 4px 14px rgba(0, 0, 0, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition:
+      transform 0.22s ease,
+      box-shadow 0.22s ease,
+      background 0.22s ease,
+      border-color 0.22s ease;
+    will-change: transform;
+  }
+
+  .mo-footer__partner-card:hover,
+  .mo-footer__partner-card:focus-visible {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.28);
+    box-shadow:
+      0 14px 32px rgba(0, 0, 0, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    outline: 2px solid rgba(255, 255, 255, 0.35);
+    outline-offset: 3px;
+  }
+
+  .mo-footer__partner-frame {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .mo-footer__partner-logo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 6px;
+    transition:
+      transform 0.22s ease,
+      opacity 0.22s ease;
+  }
+
+  .mo-footer__partner-card:hover .mo-footer__partner-logo,
+  .mo-footer__partner-card:focus-visible .mo-footer__partner-logo {
+    transform: scale(1.04);
+    opacity: 0.92;
+  }
+
+  /* ═══════════════════════════════════════════
+     COPYRIGHT BAR — une seule div, responsive
+  ═══════════════════════════════════════════ */
+  .mo-footer__bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* mobile : retour à la ligne automatique */
+    gap: 0.4rem 1rem;
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .mo-footer__copy {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.68);
+  }
+
+  /* "Designed by Authent!k" — aligné à droite sur desktop */
+  .mo-footer__copy--credit {
+    margin-left: auto; /* pousse à droite quand sur la même ligne */
+  }
+
+  /* Mise en valeur de la marque dans le crédit */
+  .mo-footer__credit-brand {
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.88);
+    letter-spacing: 0.02em;
+  }
+
+  /* ═══════════════════════════════════════════
+     RESPONSIVE — Tablette (≤ 1024 px)
+  ═══════════════════════════════════════════ */
+  @media (max-width: 1024px) {
+    .mo-footer__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    /* Brand occupe toute la largeur */
+    .mo-footer__brand {
+      grid-column: 1 / -1;
+    }
+
+    /* Social + Partenaires : colonne pleine largeur */
+    .mo-footer__social {
+      grid-column: 1 / -1;
+    }
+
+    .mo-footer__partners-row {
+      justify-content: flex-start;
+    }
+
+    .mo-footer__partner-card {
+      width: 100px;
+      height: 54px;
+    }
+  }
+
+  /* ═══════════════════════════════════════════
+     RESPONSIVE — Mobile (≤ 720 px)
+  ═══════════════════════════════════════════ */
+  @media (max-width: 720px) {
+    .mo-footer__shell {
+      padding: 3rem 1rem 1.25rem;
+    }
+
+    .mo-footer__grid {
+      grid-template-columns: 1fr;
+      gap: 1.8rem;
+    }
+
+    .mo-footer__brand {
+      flex-direction: column;
+      gap: 1rem;
+      grid-column: auto;
+    }
+
+    .mo-footer__social {
+      grid-column: auto;
+    }
+
+    .mo-footer__title {
+      font-size: 1.25rem;
+    }
+
+    .mo-footer__partners-row {
+      gap: 0.75rem;
+      justify-content: flex-start;
+    }
+
+    .mo-footer__partner-card {
+      width: 92px;
+      height: 50px;
+    }
+
+    /* Copyright : centré et empilé sur mobile */
+    .mo-footer__bar {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.3rem;
+    }
+
+    .mo-footer__copy--credit {
+      margin-left: 0;
+    }
+  }
+
+  /* ═══════════════════════════════════════════
+     RESPONSIVE — Petit mobile (≤ 480 px)
+  ═══════════════════════════════════════════ */
+  @media (max-width: 480px) {
+    .mo-footer__partner-card {
+      width: 84px;
+      height: 46px;
+    }
+
+    .mo-footer__social-row {
+      gap: 0.75rem;
+    }
+  }
+
+  /* ═══════════════════════════════════════════
+     ACCESSIBILITÉ — Réduction des animations
+  ═══════════════════════════════════════════ */
+  @media (prefers-reduced-motion: reduce) {
+    .mo-footer__link,
+    .mo-footer__social-btn,
+    .mo-footer__partner-card,
+    .mo-footer__partner-logo {
+      transition: none;
+    }
+  }
+</style>

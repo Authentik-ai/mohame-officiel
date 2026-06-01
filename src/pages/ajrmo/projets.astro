@@ -1,0 +1,75 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+    title="Projets communautaires AJRMO"
+    description="Découvrez les projets communautaires menés par l'AJRMO à Mohamé : actions sociales, solidarité locale et initiatives de développement."
+>
+    <section class="container">
+        <h1>Projets et Actions</h1>
+
+        <p>
+            L'AJRMO mène régulièrement des actions communautaires, sociales et
+            environnementales pour améliorer les conditions de vie des habitants
+            de Mohamé.
+        </p>
+
+        <div class="gallery">
+            <img
+                src="/images/ajrmo/ag-elective-ajrmo.webp"
+                alt="Assemblée générale"
+                loading="lazy"
+                decoding="async"
+            />
+
+            <img
+                src="/images/ajrmo/partage-apres-ag-ajrmo-01.webp"
+                alt="Rencontre AJRMO"
+                loading="lazy"
+                decoding="async"
+            />
+
+            <img
+                src="/images/ajrmo/partage-apres-ag-ajrmo-02.webp"
+                alt="Projet communautaire"
+                loading="lazy"
+                decoding="async"
+            />
+
+            <img
+                src="/images/ajrmo/partage-apres-ag-ajrmo-03.webp"
+                alt="Projet AJRMO"
+                loading="lazy"
+                decoding="async"
+            />
+
+            <img
+                src="/images/ajrmo/partage-apres-ag-ajrmo-04.webp"
+                alt="Activité AJRMO"
+                loading="lazy"
+                decoding="async"
+            />
+        </div>
+    </section>
+</MainLayout>
+
+<style>
+    .container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 3rem 1rem;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .gallery img {
+        width: 100%;
+        border-radius: 12px;
+    }
+</style>

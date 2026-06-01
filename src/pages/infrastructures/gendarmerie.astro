@@ -1,0 +1,80 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const images = [
+  "/images/gendarmerie/chef-de-poste-gendarmerie-mohame.webp",
+  "/images/gendarmerie/gendarme-accueille-sous-prefet-mohame.webp",
+  "/images/gendarmerie/poste-gendarmerie-mohame.webp",
+];
+---
+
+<MainLayout
+  title="Gendarmerie de Mohamé"
+  description="Découvrez la gendarmerie de Mohamé, une présence sécuritaire essentielle pour protéger les populations, les biens et la paix sociale."
+>
+  <section
+    style="
+      height:70vh;
+      background:url('/images/gendarmerie/poste-gendarmerie-mohame.webp') center/cover;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    "
+  >
+    <div
+      style="
+        background:rgba(0,0,0,.55);
+        color:white;
+        padding:2rem 3rem;
+        border-radius:12px;
+        text-align:center;
+      "
+    >
+      <h1>Gendarmerie de Mohamé</h1>
+      <p>Une présence sécuritaire au service des populations.</p>
+    </div>
+  </section>
+
+  <section class="container" style="padding:4rem 0;">
+    <h2>Un pilier de la sécurité locale</h2>
+
+    <p>
+      Le poste de gendarmerie de Mohamé assure la protection des personnes et
+      des biens. Il participe au maintien de l'ordre, à la sécurité des
+      populations et à l'accompagnement des initiatives de développement du
+      village.
+    </p>
+
+    <p>
+      Grâce à la collaboration avec les autorités administratives, les chefs
+      communautaires et les associations locales, la gendarmerie contribue à
+      renforcer la paix sociale et la confiance entre les citoyens.
+    </p>
+  </section>
+
+  <section
+    style="
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:1.5rem;
+      padding:0 2rem 4rem;
+    "
+  >
+    {
+      images.map((image) => (
+        <img
+          src={image}
+          alt="Gendarmerie de Mohamé"
+          loading="lazy"
+          decoding="async"
+          style="
+            width:100%;
+            height:320px;
+            object-fit:cover;
+            border-radius:12px;
+          "
+        />
+      ))
+    }
+  </section>
+</MainLayout>

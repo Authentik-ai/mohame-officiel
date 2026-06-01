@@ -1,0 +1,54 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+    title="Bureau exécutif de l'AJRMO"
+    description="Découvrez le bureau exécutif de l'AJRMO, responsable de la coordination des actions communautaires et du développement de Mohamé."
+>
+    <section class="container">
+        <h1>Bureau Exécutif de l'AJRMO</h1>
+
+        <p>
+            L'Association des Jeunes Ressortissants de Mohamé (AJRMO) est
+            dirigée par un bureau élu chargé de coordonner les actions de
+            développement du village.
+        </p>
+
+        <div class="gallery">
+            <img
+                src="/images/ajrmo/affiche-president.webp"
+                alt="Président AJRMO"
+                loading="lazy"
+                decoding="async"
+            />
+
+            <img
+                src="/images/ajrmo/logo-officiel-ajrmo.webp"
+                alt="Logo AJRMO"
+                loading="lazy"
+                decoding="async"
+            />
+        </div>
+    </section>
+</MainLayout>
+
+<style>
+    .container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 3rem 1rem;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .gallery img {
+        width: 100%;
+        border-radius: 12px;
+    }
+</style>

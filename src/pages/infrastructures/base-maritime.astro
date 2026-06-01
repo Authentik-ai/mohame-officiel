@@ -1,0 +1,79 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const images = [
+  "/images/base-maritime/base-maritime-01.webp",
+  "/images/base-maritime/base-maritime-02.webp",
+  "/images/base-maritime/base-maritime-03.webp",
+  "/images/base-maritime/base-maritime-04.webp",
+  "/images/base-maritime/operation-securite-plage-mohame.webp",
+  "/images/base-maritime/presentation-des-honneurs-mohame.webp",
+];
+---
+
+<MainLayout
+  title="Base maritime de Mohamé"
+  description="Découvrez la base maritime de Mohamé, un dispositif stratégique de sécurité côtière au service du littoral et des populations."
+>
+  <section
+    style={`height:70vh;background:url(${images[0]}) center/cover;display:flex;align-items:center;justify-content:center;`}
+  >
+    <div
+      style="background:rgba(0,0,0,.5);padding:2rem 3rem;border-radius:16px;color:white;text-align:center;"
+    >
+      <h1>Base Maritime</h1>
+      <p>Un dispositif de sécurité au service du littoral.</p>
+    </div>
+  </section>
+
+  <section class="container">
+    <h2>Une présence stratégique</h2>
+
+    <p>
+      La base maritime participe à la surveillance du littoral et à la
+      sécurisation des activités maritimes dans la région de Mohamé.
+    </p>
+
+    <p>
+      Elle contribue à la protection des populations, à la lutte contre les
+      activités illicites et au renforcement de la sécurité côtière.
+    </p>
+  </section>
+
+  <section class="gallery">
+    {
+      images.map((image) => (
+        <img
+          src={image}
+          alt="Base maritime de Mohamé"
+          loading="lazy"
+          decoding="async"
+        />
+      ))
+    }
+  </section>
+</MainLayout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 4rem 2rem;
+  }
+
+  .gallery {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .gallery img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+</style>

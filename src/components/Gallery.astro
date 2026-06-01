@@ -1,0 +1,156 @@
+---
+interface ImageItem {
+    src: string;
+    alt?: string;
+    href?: string;
+}
+
+interface Props {
+    images?: Array<string | ImageItem>;
+    columns?: string;
+    gap?: string;
+    imageHeight?: string;
+    hover?: boolean;
+}
+
+const {
+    images = [],
+    columns = "repeat(auto-fit, minmax(280px, 1fr))",
+    gap = "1rem",
+    imageHeight = "250px",
+    hover = false,
+} = Astro.props as Props;
+
+const buildAlt = (src: string) => {
+    const fileName = src.split("/").pop() ?? "image";
+    const baseName = fileName.replace(/\.(jpe?g|webp|webp|avif|gif|svg)$/i, "");
+    return baseName.replace(/[-_]+/g, " ");
+};
+---
+
+<div
+    class={`gallery${hover ? " hoverable" : ""}`}
+    style={`grid-template-columns: ${columns}; gap: ${gap}; --image-height: ${imageHeight};`}
+>
+    {
+        images.map((item: string | ImageItem, index: number) =>
+            typeof item === "string" ? (
+                <img
+                    src={item}
+                    alt={buildAlt(item)}
+                    loading={index > 3 ? "lazy" : "eager"}
+                    decoding="async"
+                    fetchpriority={index < 2 ? "high" : "low"}
+                />
+            ) : item.href ? (
+                <a href={item.href} target="_blank" rel="noreferrer">
+                    <img
+                        src={item.src}
+                        alt={item.alt ?? buildAlt(item.src)}
+                        loading={index > 3 ? "lazy" : "eager"}
+                        decoding="async"
+                        fetchpriority={index < 2 ? "high" : "low"}
+                    />
+                </a>
+            ) : (
+                <img
+                    src={item.src}
+                    alt={item.alt ?? buildAlt(item.src)}
+                    loading={index > 3 ? "lazy" : "eager"}
+                    decoding="async"
+                    fetchpriority={index < 2 ? "high" : "low"}
+                />
+            ),
+        )
+    }
+</div>
+
+<style>
+    .gallery {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+    }
+
+    .gallery a {
+        display: block;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+
+    .gallery a:hover,
+    .gallery a:focus-visible {
+        outline: 2px solid #0077b6;
+        outline-offset: 2px;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: var(--image-height, 250px);
+        object-fit: cover;
+        border-radius: 12px;
+        display: block;
+        transition: transform 0.3s ease;
+    }
+
+    .gallery.hoverable img {
+        cursor: pointer;
+    }
+
+    .gallery.hoverable a:hover img,
+    .gallery.hoverable a:focus img {
+        transform: scale(1.05);
+    }
+
+    /* Tablette */
+    @media (max-width: 1024px) {
+        .gallery {
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .gallery img {
+            height: 220px;
+        }
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+        .gallery {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .gallery img {
+            height: 180px;
+            border-radius: 8px;
+        }
+    }
+
+    /* Petit écran */
+    @media (max-width: 480px) {
+        .gallery {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+        }
+
+        .gallery img {
+            height: 150px;
+        }
+    }
+
+    /* Très petit écran */
+    @media (max-width: 380px) {
+        .gallery {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.4rem;
+        }
+
+        .gallery img {
+            height: 130px;
+            border-radius: 6px;
+        }
+    }
+</style>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.mohame-officiel.ci/sitemap.xml
+Host: https://www.mohame-officiel.ci

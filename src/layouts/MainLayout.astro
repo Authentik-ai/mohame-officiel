@@ -1,0 +1,211 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../data/site";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const siteUrl = Astro.site ?? site.url;
+const path = Astro.url.pathname;
+const canonical = `${siteUrl}${path === "/" ? "" : path}`;
+const pageTitle = `${title} | ${site.title}`;
+const pageDescription = description ?? site.description;
+const ogImage = `${siteUrl}/images/logos/mohame-logo.webp`;
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8" />
+<link rel="icon" type="image/webp" href="/favicon.webp" />
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+/>
+
+<title>{pageTitle}</title>
+<meta name="description" content={pageDescription} />
+<link rel="canonical" href={canonical} />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#003b5c" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={pageDescription} />
+<meta property="og:url" content={canonical} />
+<meta property="og:site_name" content={site.title} />
+<meta property="og:locale" content="fr_CI" />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:alt" content={site.title} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={pageDescription} />
+<meta name="twitter:image" content={ogImage} />
+
+<script type="application/ld+json">
+{JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "url": siteUrl,
+      "name": site.title,
+      "description": site.description,
+      "publisher": {
+        "@type": "Organization",
+        "name": site.organization,
+        "url": siteUrl,
+        "logo": {
+          "@type": "ImageObject",
+          "url": ogImage
+        }
+      }
+    },
+    {
+      "@type": "Organization",
+      "name": site.organization,
+      "legalName": site.organization,
+      "url": siteUrl,
+      "sameAs": [site.facebook],
+      "logo": {
+        "@type": "ImageObject",
+        "url": ogImage
+      }
+    }
+  ]
+})}
+</script>
+
+</head>
+
+<body>
+
+<Navbar />
+
+<main>
+  <slot />
+</main>
+
+<Footer />
+
+</body>
+
+</html>
+
+<style is:global>
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: white;
+  overflow-x: hidden;
+}
+
+main {
+  min-height: 80vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+/* Garantir pas de débordement horizontal */
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Améliorer les liens */
+a {
+  transition: color 0.3s ease;
+}
+
+a:focus-visible {
+  outline: 2px solid #0077b6;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Formulaires accessibles */
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* Focus visible pour accessibilité */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #0077b6;
+  outline-offset: 2px;
+}
+
+/* Optimisations mobiles */
+@media (max-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    -webkit-text-size-adjust: 100%;
+    -webkit-touch-callout: none;
+  }
+
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  /* Empêcher zoom sur input */
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+}
+
+</style>

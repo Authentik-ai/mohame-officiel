@@ -1,0 +1,122 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="Canal de Mohamé, voie d'eau stratégique"
+  description="Découvrez le canal de Mohamé, une voie d'eau essentielle pour les déplacements, la pêche et l'activité économique du village."
+>
+  <section class="hero">
+    <div class="overlay">
+      <h1>Le Canal de Mohamé</h1>
+      <p>Voie d'eau stratégique entre lagune et océan.</p>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="container">
+      <h2>Un axe naturel majeur</h2>
+
+      <p>
+        Le canal constitue une ressource essentielle pour les populations
+        locales. Il facilite les déplacements, la pêche et les activités
+        économiques du village.
+      </p>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <img
+      src="/images/canal/long-view-canal-mohame-01.webp"
+      alt="Vue panoramique du canal de Mohamé"
+      loading="lazy"
+      decoding="async"
+    />
+    <img
+      src="/images/canal/long-view-canal-mohame-02.webp"
+      alt="Vue de côté du canal de Mohamé"
+      loading="lazy"
+      decoding="async"
+    />
+    <img
+      src="/images/canal/long-view-canal-mohame-03.webp"
+      alt="Vue d'ensemble du canal de Mohamé"
+      loading="lazy"
+      decoding="async"
+    />
+    <img
+      src="/images/canal/wide-view-canal-mohame-01.webp"
+      alt="Vue large du canal de Mohamé"
+      loading="lazy"
+      decoding="async"
+    />
+    <img
+      src="/images/canal/wide-view-canal-mohame-02.webp"
+      alt="Vue large du canal de Mohamé"
+      loading="lazy"
+      decoding="async"
+    />
+    <img
+      src="/images/canal/la-star-samuel-etoo-joueur-international-a-la-traverse-mohame.webp"
+      alt="La Star Samuel Etoo, joueur international, à la traversée du canal de Mohamé"
+      loading="lazy"
+      decoding="async"
+    />
+    <img
+      src="/images/canal/environnement-canal-01.webp"
+      alt="la petite coline et le canal de mohame"
+      loading="lazy"
+      decoding="async"
+    />
+    <img
+      src="/images/canal/environnement-canal-02.webp"
+      alt="la descente de la coline vers le canal de mohame"
+      loading="lazy"
+      decoding="async"
+    />
+    <img
+      src="/images/canal/environnement-canal-03.webp"
+      alt="le canal de mohame et ses alentours"
+      loading="lazy"
+      decoding="async"
+    />
+  </section>
+
+  <style>
+    .hero {
+      height: 70vh;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+        url("/images/canal/long-view-canal-mohame-02.webp");
+
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.55);
+      padding: 40px;
+      color: white;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 700px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+  </style>
+</MainLayout>

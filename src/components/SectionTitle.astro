@@ -1,0 +1,33 @@
+---
+interface Props {
+  heading: string;
+  description?: string;
+  tag?: "h1" | "h2" | "h3";
+}
+
+const { heading, description, tag = "h2" } = Astro.props;
+---
+
+<section class="section-title">
+  {tag === "h1" ? <h1>{heading}</h1> : tag === "h3" ? <h3>{heading}</h3> : <h2>{heading}</h2>}
+  {description && <p>{description}</p>}
+  <slot />
+</section>
+
+<style>
+.section-title {
+  margin-bottom: 1.5rem;
+}
+
+.section-title h1,
+.section-title h2,
+.section-title h3 {
+  margin: 0;
+}
+
+.section-title p {
+  margin: 1rem 0 0;
+  line-height: 1.8;
+  color: #334155;
+}
+</style>

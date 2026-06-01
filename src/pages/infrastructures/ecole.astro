@@ -1,0 +1,103 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+    title="École primaire de Mohamé"
+    description="Découvrez l'école primaire de Mohamé, une infrastructure éducative essentielle pour former la jeunesse et préparer l'avenir du village."
+>
+    <section class="hero">
+        <div class="overlay">
+            <h1>Éducation</h1>
+            <p>Former la jeunesse pour construire l'avenir.</p>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <h2>Un investissement pour demain</h2>
+
+            <p>
+                Les établissements scolaires de Mohamé participent à la
+                formation des enfants et des jeunes du village.
+            </p>
+
+            <p>
+                L'éducation constitue un pilier essentiel du développement local
+                et bénéficie du soutien des autorités et des associations.
+            </p>
+
+            <div class="gallery">
+                <img
+                    src="/images/ecole/ecole-primaire-mohame-01.webp"
+                    alt="École primaire de Mohamé"
+                    loading="lazy"
+                    decoding="async"
+                />
+                <img
+                    src="/images/ecole/ecole-primaire-mohame-02.webp"
+                    alt="Bâtiment de l'école primaire de Mohamé"
+                    loading="lazy"
+                    decoding="async"
+                />
+                <img
+                    src="/images/ecole/ecole-primaire-mohame-04.webp"
+                    alt="Classe de l'école primaire de Mohamé"
+                    loading="lazy"
+                    decoding="async"
+                />
+                <img
+                    src="/images/ecole/recompense-meilleur-eleve-mohame-03.webp"
+                    alt="Récompense du meilleur élève à Mohamé"
+                    loading="lazy"
+                    decoding="async"
+                />
+            </div>
+        </div>
+    </section>
+</MainLayout>
+
+<style>
+    .hero {
+        height: 60vh;
+        background: url("/images/ecole/ecole-primaire-mohame-01.webp");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .overlay {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 40px;
+        border-radius: 12px;
+        color: white;
+        text-align: center;
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 3rem 1rem;
+    }
+
+    .main-image {
+        width: 100%;
+        margin-top: 2rem;
+        border-radius: 12px;
+    }
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .gallery img {
+        width: 100%;
+        border-radius: 12px;
+        height: 250px;
+        object-fit: cover;
+    }
+</style>

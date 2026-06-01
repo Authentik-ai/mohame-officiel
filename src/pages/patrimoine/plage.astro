@@ -1,0 +1,130 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="Plage de Mohamé, littoral et cocoteraies"
+  description="Découvrez la plage de Mohamé, un paysage naturel emblématique entre océan Atlantique, cocoteraies et activités communautaires."
+>
+  <section class="hero">
+    <div class="overlay">
+      <h1>La Plage de Mohamé</h1>
+      <p>Une côte naturelle entre océan Atlantique et cocoteraies.</p>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="container">
+      <h2>Un patrimoine naturel exceptionnel</h2>
+
+      <p>
+        La plage de Mohamé constitue l'un des principaux atouts touristiques du
+        village. Bordée de cocotiers et ouverte sur l'océan Atlantique, elle
+        attire visiteurs, pêcheurs et amoureux de la nature.
+      </p>
+
+      <p>
+        Cet espace naturel participe au développement économique local à travers
+        la pêche artisanale, le tourisme balnéaire et les activités
+        communautaires organisées par les habitants.
+      </p>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <img
+      src="/images/plage/plage-mohame-01.webp"
+      alt="Plage Mohamé"
+      loading="lazy"
+      decoding="async"
+    />
+    <img
+      src="/images/plage/plage-mohame-02.webp"
+      alt="Plage Mohamé"
+      loading="lazy"
+      decoding="async"
+    />
+    <img
+      src="/images/plage/plage-mohame-03.webp"
+      alt="Plage Mohamé"
+      loading="eager"
+      decoding="async"
+    />
+    <img
+      src="/images/plage/plage-mohame-04.webp"
+      alt="Plage Mohamé"
+      loading="lazy"
+      decoding="async"
+    />
+    <img
+      src="/images/plage/plage-mohame-05.webp"
+      alt="Plage Mohamé"
+      loading="lazy"
+      decoding="async"
+    />
+    <img
+      src="/images/plage/plage-mohame-06.webp"
+      alt="Plage Mohamé"
+      loading="lazy"
+      decoding="async"
+    />
+    <img
+      src="/images/plage/plage-mohame-07.webp"
+      alt="Plage Mohamé"
+      loading="lazy"
+      decoding="async"
+    />
+  </section>
+
+  <style>
+    .hero {
+      height: 70vh;
+      background: url("/images/plage/plage-mohame-03.webp");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.45);
+      color: white;
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .overlay h1 {
+      font-size: 3rem;
+    }
+
+    .content {
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px 40px 80px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+  </style>
+</MainLayout>

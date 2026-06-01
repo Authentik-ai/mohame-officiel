@@ -1,0 +1,70 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+    title="Pêche artisanale à Mohamé"
+    description="Découvrez la pêche artisanale à Mohamé, activité traditionnelle majeure qui soutient l'économie locale et l'identité du village."
+>
+    <section class="container">
+        <h1>La Pêche Artisanale</h1>
+
+        <p>
+            La pêche artisanale représente l'une des principales activités
+            traditionnelles de Mohamé.
+        </p>
+
+        <p>
+            Chaque jour, les pêcheurs exploitent les ressources marines de
+            l'océan Atlantique et contribuent à l'économie locale ainsi qu'à
+            l'approvisionnement des marchés de la région.
+        </p>
+
+        <div class="gallery">
+            <img
+                src="/images/pecheurs/mise-a-leau-pirogue-mohame.webp"
+                alt="mise a leau d'une pirogue à mohame"
+                loading="lazy"
+                decoding="async"
+            />
+            <img
+                src="/images/pecheurs/pecheurs-reparant-leur-fillet-mohame.webp"
+                alt="les pecheurs reparant leur fillet sur la plage de mohame"
+                loading="lazy"
+                decoding="async"
+            />
+            <img
+                src="/images/pecheurs/pecheurs-tirant-fillet-mohame-01.webp"
+                alt="Activités de pêche artisanale à Mohamé"
+                loading="lazy"
+                decoding="async"
+            />
+            <img
+                src="/images/pecheurs/retour-de-peche-mohame-01.webp"
+                alt="retour de pêche à Mohamé"
+                loading="lazy"
+                decoding="async"
+            />
+        </div>
+    </section>
+</MainLayout>
+
+<style>
+    .container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 3rem 1rem;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .gallery img {
+        width: 100%;
+        border-radius: 12px;
+    }
+</style>

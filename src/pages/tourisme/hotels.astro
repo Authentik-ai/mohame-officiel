@@ -1,0 +1,47 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+    title="Hébergements à Mohamé"
+    description="Découvrez les hébergements à Mohamé et ses environs pour profiter du littoral du Sud-Comoé dans un cadre naturel exceptionnel."
+>
+    <section class="container">
+        <h1>Hôtels et Hébergements</h1>
+
+        <p>
+            Mohamé et ses environs offrent plusieurs possibilités d'hébergement
+            pour les visiteurs souhaitant découvrir le littoral du Sud-Comoé.
+        </p>
+
+        <p>
+            Entre hôtels balnéaires, résidences et sites écotouristiques, les
+            voyageurs peuvent profiter d'un cadre naturel exceptionnel à
+            proximité de l'océan Atlantique.
+        </p>
+
+        <div class="placeholder">
+            <img
+                src="/images/hotels/bethel-evasion.webp"
+                alt="Séjour à Mohamé"
+                loading="lazy"
+                decoding="async"
+            />
+        </div>
+    </section>
+</MainLayout>
+
+<style>
+    .container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 3rem 1rem;
+    }
+
+    .placeholder img {
+        width: 100%;
+        max-width: 800px;
+        border-radius: 12px;
+        margin-top: 2rem;
+    }
+</style>

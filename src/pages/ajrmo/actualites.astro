@@ -1,0 +1,61 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+    title="Actualités de l'AJRMO à Mohamé"
+    description="Suivez les actualités de l'AJRMO à Mohamé : assemblées générales, rencontres communautaires, actions sociales et initiatives de développement."
+>
+    <section class="container">
+        <h1>Actualités de l'AJRMO</h1>
+
+        <p>
+            L'AJRMO organise régulièrement des rencontres, assemblées générales,
+            activités sociales et actions de développement au profit de la
+            communauté de Mohamé.
+        </p>
+
+        <div class="gallery">
+            <img
+                src="/images/ajrmo/ag-elective-ajrmo.webp"
+                alt="Assemblée générale"
+                loading="lazy"
+                decoding="async"
+            />
+
+            <img
+                src="/images/ajrmo/le-sourire-du-president.webp"
+                alt="Président AJRMO"
+                loading="lazy"
+                decoding="async"
+            />
+
+            <img
+                src="/images/ajrmo/partage-apres-ag-ajrmo-01.webp"
+                alt="Activité AJRMO"
+                loading="lazy"
+                decoding="async"
+            />
+        </div>
+    </section>
+</MainLayout>
+
+<style>
+    .container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 3rem 1rem;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .gallery img {
+        width: 100%;
+        border-radius: 12px;
+    }
+</style>

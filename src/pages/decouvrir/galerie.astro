@@ -1,0 +1,114 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const photos = [
+    "/images/plage/plage-mohame-01.webp",
+    "/images/plage/plage-mohame-02.webp",
+    "/images/plage/plage-mohame-03.webp",
+    "/images/plage/plage-mohame-04.webp",
+
+    "/images/canal/wide-view-canal-mohame-01.webp",
+    "/images/canal/wide-view-canal-mohame-02.webp",
+    "/images/canal/la-star-samuel-etoo-joueur-international-a-la-traverse-mohame.webp",
+
+    "/images/ecole/ecole-primaire-mohame-01.webp",
+
+    "/images/sante/centre-sante-mohame-01.webp",
+
+    "/images/base-maritime/operation-securite-plage-mohame.webp",
+
+    "/images/gendarmerie/poste-gendarmerie-mohame.webp",
+
+    "/images/autoroute/nouvelle-autoroute-abidjan-assinie-par-mohame01.webp",
+
+    "/images/ajrmo/ag-elective-ajrmo.webp",
+    "/images/ajrmo/partage-apres-ag-ajrmo-01.webp",
+];
+---
+
+<MainLayout
+    title="Galerie photo de Mohamé"
+    description="Explorez la galerie photo de Mohamé avec ses plages, son canal, ses infrastructures, son patrimoine et ses actions communautaires."
+>
+    <section class="hero">
+        <div class="overlay">
+            <h1>Galerie de Mohamé</h1>
+            <p>Découvrez le village en images.</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2>Le patrimoine de Mohamé en images</h2>
+
+        <p>
+            Cette galerie rassemble quelques-uns des lieux, infrastructures et
+            moments de vie qui participent à l'identité et au développement de
+            Mohamé.
+        </p>
+    </section>
+
+    <section class="gallery">
+        {
+            photos.map((photo) => (
+                <a href={photo} target="_blank" rel="noopener noreferrer">
+                    <img
+                        src={photo}
+                        alt="Mohamé"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </a>
+            ))
+        }
+    </section>
+</MainLayout>
+
+<style>
+    .hero {
+        height: 60vh;
+        background: url("/images/plage/plage-mohame-03.webp");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .overlay {
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 2rem 3rem;
+        border-radius: 20px;
+        text-align: center;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 4rem 1rem;
+    }
+
+    .gallery {
+        max-width: 1400px;
+        margin: auto;
+        padding: 2rem;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+        gap: 20px;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        border-radius: 16px;
+
+        transition: 0.3s;
+    }
+
+    .gallery img:hover {
+        transform: scale(1.03);
+    }
+</style>
