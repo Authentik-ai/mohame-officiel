@@ -1,5 +1,13 @@
-export default {
-    site: "https://www.mohame-officiel.ci",
+import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
+
+export default defineConfig({
+    site: 'https://mohame-ci.vercel.app',
+    integrations: [sitemap()],
+    compressHTML: true,
+    build: {
+        assets: 'assets'
+    },
     vite: {
         build: {
             cssCodeSplit: true,
@@ -12,10 +20,5 @@ export default {
         ssr: {
             noExternal: []
         }
-    },
-    compressHTML: true,
-    integrations: [],
-    build: {
-        assets: 'assets'
     }
-};
+});

@@ -11,7 +11,7 @@ export const site = {
   location:
     "Mohamé, Bonoua, Sud-Comoé, Côte d'Ivoire",
 
-  url: "https://www.mohame-officiel.ci",
+  url: "https://mohame-ci.vercel.app",
 
   facebook:
     "https://facebook.com/village.mohame.officiel",
@@ -25,6 +25,4 @@ export const site = {
   email:
     "contact.mohame@gmail.com",
 
-  whatsapp:
-    "https://wa.me/2250777949604"
 };
