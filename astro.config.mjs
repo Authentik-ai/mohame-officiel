@@ -7,18 +7,6 @@ export default defineConfig({
     compressHTML: true,
     build: {
         assets: 'assets'
-    },
-    vite: {
-        build: {
-            cssCodeSplit: true,
-            rollupOptions: {
-                output: {
-                    manualChunks: undefined,
-                }
-            }
-        },
-        ssr: {
-            noExternal: []
-        }
     }
+    // Suppression de la configuration manuelle des chunks de Vite qui causait l'erreur de build
 });
