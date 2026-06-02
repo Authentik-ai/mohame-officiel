@@ -2,16 +2,19 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import Hero from "../components/Hero.astro";
 import Card from "../components/Card.astro";
+
+// Importation corrigée selon le chemin exact de votre dossier src/assets/images
+import imagePlageHero from "../assets/images/plage-mohame-03.webp";
 ---
 
 <MainLayout
   title="Village de Mohamé, patrimoine et développement"
-  description="Découvrez le village de Mohamé : plage, canal, infrastructures, tourisme et actions communautaires portées par l'AJRMO."
+  description="Découvrez le village de Mohamé : plage, canal, infrastructures, tourisme et actions communautaires portées by l'AJRMO."
 >
   <Hero
     title="Portail officiel du village de Mohamé"
     subtitle="Bonoua · Sud-Comoé · Côte d'Ivoire"
-    image="/images/plage/plage-mohame-03.webp"
+    image={imagePlageHero}
     height="85vh"
   />
 
@@ -114,7 +117,8 @@ import Card from "../components/Card.astro";
     padding: clamp(2rem, 8vw, 5rem) 1rem;
   }
 
-  .intro h2 {
+  /* Correction du sélecteur ici : h1 au lieu de h2 */
+  .intro h1 {
     font-size: clamp(1.5rem, 4vw, 2.5rem);
     margin-bottom: 1.5rem;
     color: #003b5c;
@@ -202,7 +206,8 @@ import Card from "../components/Card.astro";
       padding: 2.5rem 0.75rem;
     }
 
-    .intro h2 {
+    /* Correction h1 */
+    .intro h1 {
       font-size: clamp(1.25rem, 3vw, 1.75rem);
       margin-bottom: 1rem;
     }
@@ -269,7 +274,8 @@ import Card from "../components/Card.astro";
       padding: 1.5rem 0.5rem;
     }
 
-    .intro h2 {
+    /* Correction h1 */
+    .intro h1 {
       font-size: 1.25rem;
     }
 

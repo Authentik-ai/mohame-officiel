@@ -1,10 +1,11 @@
 ---
+import { Image } from "astro:assets";
+
 interface Props {
   title: string;
   subtitle: string;
-  image: string;
+  image: ImageMetadata | string; // Accepte l'objet d'image optimisé ou une chaîne classique
   height?: string;
-  background?: string;
   overlayMaxWidth?: string;
 }
 
@@ -13,18 +14,40 @@ const {
   subtitle,
   image,
   height = "60vh",
-  background,
   overlayMaxWidth = "700px",
 } = Astro.props;
-const heroBackground = background ?? `url("${image}")`;
+
+// On vérifie si l'image est un objet importé (optimisable) ou une simple chaîne de texte
+const isOptimizedImage = typeof image !== "string";
 ---
 
 <section
   class="hero"
-  style={`background: ${heroBackground} center/cover; height: ${height}; background-attachment: fixed;`}
+  style={`height: ${height};`}
   role="region"
   aria-label="Hero section"
 >
+  <!-- Rendu adaptatif : Image optimisée Astro OU image classique en arrière-plan -->
+  {
+    isOptimizedImage ? (
+      <Image
+        src={image}
+        alt={title}
+        widths={[360, 720, 1200, 1920]}
+        sizes="100vw"
+        quality="high"
+        loading="eager"
+        class="hero-bg-image"
+      />
+    ) : (
+      <div
+        class="hero-bg-fallback"
+        style={`background-image: url('${image}');`}
+      />
+    )
+  }
+
+  <!-- Contenu textuel et voile sombre -->
   <div class="overlay" style={`max-width: ${overlayMaxWidth};`}>
     <h1>{title}</h1>
     <p>{subtitle}</p>
@@ -38,22 +61,40 @@ const heroBackground = background ?? `url("${image}")`;
     align-items: center;
     width: 100%;
     min-height: 40vh;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
     position: relative;
+    overflow: hidden;
   }
 
-  /* Lazy load hero background */
-  .hero::before {
-    content: "";
+  /* Positionnement absolu de l'image de fond optimisée */
+  .hero-bg-image,
+  .hero-bg-fallback {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+
+  /* Support de l'effet parallaxe uniquement sur les écrans PC (Desktop) */
+  @media (min-width: 1025px) {
+    /* Note : L'effet parallaxe natif avec Image n'est pas possible en CSS pur, 
+       ce fallback conserve le comportement initial pour les anciennes chaînes de caractères si besoin */
+    .hero-bg-fallback {
+      background-attachment: fixed;
+    }
+  }
+
+  /* Voile sombre global par-dessus l'image */
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
     background: rgba(0, 0, 0, 0.2);
     pointer-events: none;
+    z-index: 1;
   }
 
   .overlay {
@@ -64,7 +105,7 @@ const heroBackground = background ?? `url("${image}")`;
     text-align: center;
     animation: fadeIn 0.6s ease;
     position: relative;
-    z-index: 1;
+    z-index: 2;
   }
 
   @keyframes fadeIn {
@@ -114,7 +155,6 @@ const heroBackground = background ?? `url("${image}")`;
   @media (max-width: 768px) {
     .hero {
       min-height: 35vh;
-      background-attachment: scroll; /* Disable parallax on mobile */
     }
 
     .overlay {
