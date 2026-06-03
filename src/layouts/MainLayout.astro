@@ -14,7 +14,8 @@ const path = Astro.url.pathname;
 const canonical = `${siteUrl}${path === "/" ? "" : path}`;
 const pageTitle = `${title} | ${site.title}`;
 const pageDescription = description ?? site.description;
-const ogImage = `${siteUrl}/images/logos/mohame-logo.webp`;
+const siteUrlClean = String(siteUrl).replace(/\/$/, '');
+const ogImage = `${siteUrlClean}/images/logos/mohame-logo.webp`;
 ---
 
 <!DOCTYPE html>
